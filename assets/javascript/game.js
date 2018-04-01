@@ -70,7 +70,7 @@ $(document).ready(function() {
     if (userTotal === randomTarget) {
       winner();
     } else if (userTotal > randomTarget) {
-        loser();
+      loser();
     }
   });
 
@@ -80,7 +80,7 @@ $(document).ready(function() {
     if (userTotal === randomTarget) {
       winner();
     } else if (userTotal > randomTarget) {
-        loser();
+      loser();
     }
   });
 
@@ -90,7 +90,7 @@ $(document).ready(function() {
     if (userTotal === randomTarget) {
       winner();
     } else if (userTotal > randomTarget) {
-        loser();
+      loser();
     }
   });
 
