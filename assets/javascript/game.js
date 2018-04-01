@@ -2,7 +2,7 @@ $(document).ready(function() {
   var winScore = 0;
   var loseScore = 0;
   var userTotal = 0;
-  var targetNumber = "";
+  var randomTarget = Math.floor(Math.random() * 101) + 19;
   var crystals = $(".crystals");
 
   // assign random number to each gem with a value 1-12
@@ -11,19 +11,16 @@ $(document).ready(function() {
   var valGem03 = Math.floor(Math.random() * 12) + 1;
   var valGem04 = Math.floor(Math.random() * 12) + 1;
 
+  $("#number-to-guess").text(randomTarget);
   $("#num-wins").text(winScore);
   $("#num-losses").text(loseScore);
 
   // Functions
 
   // Randomize the number to guess 19-120
-  function init() {
-    var randomTarget = Math.floor(Math.random() * 101) + 19;
+  function getRandom() {
+    randomTarget = Math.floor(Math.random() * 101) + 19;
     $("#number-to-guess").text(randomTarget);
-    console.log("redGem value: " + valGem01);
-    console.log("blueGem value: " + valGem02);
-    console.log("yellowGem value: " + valGem03);
-    console.log("yellowGem value: " + valGem04);
   }
 
   // Randomizes gem values at reset
@@ -35,12 +32,14 @@ $(document).ready(function() {
   }
 
   function winner() {
+    //alert("You win!");
     winScore++;
     $("#num-wins").text(winScore);
     reset();
   }
 
   function loser() {
+    //alert("You lose. Try again.");
     loseScore++;
     $("#num-losses").text(loseScore);
     reset();
@@ -48,65 +47,52 @@ $(document).ready(function() {
 
   // resets game after win/loss
   function reset() {
-    init();
+    getRandom();
     resetGemNums();
     userTotal = 0;
     $("#user-score").text(userTotal);
-    console.log("The game has reset");
   }
 
   // Buttons
   crystals.on("click", "#gem-01", function() {
     userTotal = userTotal + valGem01;
     $("#user-score").text(userTotal);
-    if (userTotal === targetNumber) {
+    if (userTotal === randomTarget) {
       winner();
-    } else if (userTotal < targetNumber) {
-      userTotal = userTotal + valGem01;
-    } else if (userTotal > targetNumber) {
+    } else if (userTotal > randomTarget) {
       loser();
-      console.log("User total is " + userTotal);
     }
   });
 
   crystals.on("click", "#gem-02", function() {
     userTotal = userTotal + valGem02;
     $("#user-score").text(userTotal);
-    if (userTotal === targetNumber) {
+    if (userTotal === randomTarget) {
       winner();
-    } else if (userTotal < targetNumber) {
-      userTotal = userTotal + valGem01;
-    } else if (userTotal > targetNumber) {
-      loser();
-      console.log("User total is " + userTotal);
+    } else if (userTotal > randomTarget) {
+        loser();
     }
   });
 
   crystals.on("click", "#gem-03", function() {
     userTotal = userTotal + valGem03;
     $("#user-score").text(userTotal);
-    if (userTotal === targetNumber) {
+    if (userTotal === randomTarget) {
       winner();
-    } else if (userTotal < targetNumber) {
-      userTotal = userTotal + valGem01;
-    } else if (userTotal > targetNumber) {
-      loser();
-      console.log("User total is " + userTotal);
+    } else if (userTotal > randomTarget) {
+        loser();
     }
   });
 
   crystals.on("click", "#gem-04", function() {
     userTotal = userTotal + valGem04;
     $("#user-score").text(userTotal);
-    if (userTotal === targetNumber) {
+    if (userTotal === randomTarget) {
       winner();
-    } else if (userTotal < targetNumber) {
-      userTotal = userTotal + valGem01;
-    } else if (userTotal > targetNumber) {
-      loser();
-      console.log("User total is " + userTotal);
+    } else if (userTotal > randomTarget) {
+        loser();
     }
   });
 
-  init();
+  getRandom();
 });
