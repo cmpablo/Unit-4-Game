@@ -1,67 +1,112 @@
 $(document).ready(function() {
-  var targetNumber = 55;
-
-  $("#number-to-guess").text(targetNumber);
-
-  // on-click event tracking button clicks and score
+  var winScore = 0;
+  var loseScore = 0;
   var userTotal = 0;
-  var numOptions = [10, 5, 3, 7];
-  var increment = numOptions[Math.round(Math.random())];
+  var targetNumber = "";
+  var crystals = $(".crystals");
 
-  // Red Gem
-  $(".crystals").on("click", "#red-gem", function() {
-    var redGem = "<img>";
-    for (var i = 0; i < numOptions.length; i++) {
-      redGem.attr("data-crystalvalue", numOptions[i]);
-      findCrystalValue();
-      console.log("the red gem was pushed");
-    }
-  });
+  // assign random number to each gem with a value 1-12
+  var valGem01 = Math.floor(Math.random() * 12) + 1;
+  var valGem02 = Math.floor(Math.random() * 12) + 1;
+  var valGem03 = Math.floor(Math.random() * 12) + 1;
+  var valGem04 = Math.floor(Math.random() * 12) + 1;
 
-  // Blue Gem
-  $(".crystals").on("click", "#blue-gem", function() {
-    var blueGem = "<img>";
-    for (var i = 0; i < numOptions.length; i++) {
-      blueGem.attr("data-crystalvalue", numOptions[i]);
-      findCrystalValue();
-      console.log("the blue gem was pushed");
-    }
-  });
-
-  // Yellow Gem
-  $(".crystals").on("click", "#yellow-gem", function() {
-    var yellowGem = "<img>";
-    for (var i = 0; i < numOptions.length; i++) {
-      yellowGem.attr("data-crystalvalue", numOptions[i]);
-      findCrystalValue();
-      console.log("the yellow gem was pushed");
-    }
-  });
-
-  // Green Gem
-  $(".crystals").on("click", "#green-gem", function() {
-    var greenGem = "<img>";
-    for (var i = 0; i < numOptions.length; i++) {
-      greenGem.attr("data-crystalvalue", numOptions[i]);
-      findCrystalValue();
-      console.log("the green gem was pushed");
-    }
-  });
+  $("#num-wins").text(winScore);
+  $("#num-losses").text(loseScore);
 
   // Functions
 
-  function findCrystalValue() {
-    var crystalValue = $(this).attr("data-crystalvalue");
-    crystalValue = parseInt(crystalValue);
-
-    userTotal += increment;
-
-    alert("New score is: " + userTotal);
-
-    if (userTotal === targetNumber) {
-      alert("You win!");
-    } else if (userTotal >= targetNumber) {
-      alert("You lose.");
-    }
+  // Randomize the number to guess 19-120
+  function init() {
+    var randomTarget = Math.floor(Math.random() * 101) + 19;
+    $("#number-to-guess").text(randomTarget);
+    console.log("redGem value: " + valGem01);
+    console.log("blueGem value: " + valGem02);
+    console.log("yellowGem value: " + valGem03);
+    console.log("yellowGem value: " + valGem04);
   }
+
+  // Randomizes gem values at reset
+  function resetGemNums() {
+    valGem01 = Math.floor(Math.random() * 12) + 1;
+    valGem02 = Math.floor(Math.random() * 12) + 1;
+    valGem03 = Math.floor(Math.random() * 12) + 1;
+    valGem04 = Math.floor(Math.random() * 12) + 1;
+  }
+
+  function winner() {
+    winScore++;
+    $("#num-wins").text(winScore);
+    reset();
+  }
+
+  function loser() {
+    loseScore++;
+    $("#num-losses").text(loseScore);
+    reset();
+  }
+
+  // resets game after win/loss
+  function reset() {
+    init();
+    resetGemNums();
+    userTotal = 0;
+    $("#user-score").text(userTotal);
+    console.log("The game has reset");
+  }
+
+  // Buttons
+  crystals.on("click", "#gem-01", function() {
+    userTotal = userTotal + valGem01;
+    $("#user-score").text(userTotal);
+    if (userTotal === targetNumber) {
+      winner();
+    } else if (userTotal < targetNumber) {
+      userTotal = userTotal + valGem01;
+    } else if (userTotal > targetNumber) {
+      loser();
+      console.log("User total is " + userTotal);
+    }
+  });
+
+  crystals.on("click", "#gem-02", function() {
+    userTotal = userTotal + valGem02;
+    $("#user-score").text(userTotal);
+    if (userTotal === targetNumber) {
+      winner();
+    } else if (userTotal < targetNumber) {
+      userTotal = userTotal + valGem01;
+    } else if (userTotal > targetNumber) {
+      loser();
+      console.log("User total is " + userTotal);
+    }
+  });
+
+  crystals.on("click", "#gem-03", function() {
+    userTotal = userTotal + valGem03;
+    $("#user-score").text(userTotal);
+    if (userTotal === targetNumber) {
+      winner();
+    } else if (userTotal < targetNumber) {
+      userTotal = userTotal + valGem01;
+    } else if (userTotal > targetNumber) {
+      loser();
+      console.log("User total is " + userTotal);
+    }
+  });
+
+  crystals.on("click", "#gem-04", function() {
+    userTotal = userTotal + valGem04;
+    $("#user-score").text(userTotal);
+    if (userTotal === targetNumber) {
+      winner();
+    } else if (userTotal < targetNumber) {
+      userTotal = userTotal + valGem01;
+    } else if (userTotal > targetNumber) {
+      loser();
+      console.log("User total is " + userTotal);
+    }
+  });
+
+  init();
 });
