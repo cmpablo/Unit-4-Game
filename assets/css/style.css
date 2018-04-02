@@ -1,5 +1,5 @@
 .container {
-  min-height: 750px;
+  min-height: 800px;
 }
 
 body {
@@ -25,7 +25,7 @@ h2 {
 #number-to-guess {
   font-size: 35px;
   letter-spacing: 2px;
-  color: rgb(170, 1, 85);
+  color: rgb(207, 10, 109);
 }
 
 .panel-title {
@@ -50,7 +50,6 @@ h2 {
 }
 
 .gem-image {
-  float: left;
   padding: 10px;
 }
 
