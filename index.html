@@ -8,6 +8,7 @@
     <title>Crystal Collector</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
@@ -19,72 +20,94 @@
     <div class="container">
 
         <div class="page-header">
-            <h1>Crystal Collector</h1>
+            <h1>CRYSTAL COLLECTOR</h1>
         </div>
 
         <div class="row">
-            <div class="col-sm-6 col-md-6">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Instructions</h3>
+                    <div id="title-instruct" class="panel-heading">
+                        <h3 class="panel-title">INSTRUCTIONS</h3>
                     </div>
                     <div class="panel-body">
-                        <p>You will be given a random number at the start of the game.</p>
-                        <p>There are four crystals below. Clicking on a crystal will add a specific amount of points to your total score. The value of each crystal is unknown until you click on it. At each start of the game, a new random number will appear and the values of each crystal will be reset.</p>
+                        <p>You will be given a random number to guess at the start of the game.</p>
+                        <br>
+                        <p>There are four crystals below. Clicking on a crystal will add a specific amount of points to your
+                            total score. The value of each crystal is unknown until you click on it. At each start of the
+                            game, a new random number will appear and the values of each crystal will be reset.</p>
+                        <br>
                         <p>You win the game by matching your total score to the random number. You lose the game if your total
-                                score goes above the random number.</p>
+                            score goes above the random number.</p>
+                        <br>
                         <p>Good luck! </p>
                     </div>
                 </div>
             </div>
+            <div class="col-md-1"></div>
         </div>
 
 
-        <h2>Number to Guess:
+        <h2>NUMBER TO GUESS:
             <span id="number-to-guess"></span>
         </h2>
 
         <div class="row">
-            <div class="col-sm-4 col-md-3">
+            <div class="col-md-2"></div>
+            <div class="col-sm-4 col-md-4">
+
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h5 id="title-user-score" class="panel-title">Your total score</h5>
+                    <div id="title-user-score" class="panel-heading">
+                        <h3 id="title-user-score" class="panel-title">YOUR GUESS</h3>
                     </div>
                     <div id="user-score" class="panel-body">
                         <p>0</p>
                     </div>
                 </div>
+
             </div>
 
             <div class="col-sm-4 col-md-2">
+
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h5 id="title-win" class="panel-title">Wins</h5>
+                    <div id="title-win" class="panel-heading">
+                        <h3 class="panel-title">WINS</h3>
                     </div>
                     <div id="num-wins" class="panel-body">
                         <p>0</p>
                     </div>
                 </div>
+
             </div>
 
-
             <div class="col-sm-4 col-md-2">
+
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h5 id="title-loss" class="panel-title">Losses</h5>
+                    <div id="title-loss" class="panel-heading">
+                        <h3 id="title-loss" class="panel-title">LOSSES</h3>
                     </div>
                     <div id="num-losses" class="panel-body">
                         <p>0</p>
                     </div>
                 </div>
+
             </div>
+            <div class="col-md-2"></div>
         </div>
 
-        <div class="crystals">
-            <img id="gem-01" class="button gem-image" src="assets/images/gem_red_sm.gif" alt="red gem" />
-            <img id="gem-02" class="button gem-image" src="assets/images/gem_blue_sm.gif" alt="blue gem" />
-            <img id="gem-03" class="button gem-image" src="assets/images/gem_yellow_sm.gif" alt="yellow gem" />
-            <img id="gem-04" class="button gem-image" src="assets/images/gem_green_sm.gif" alt="green gem" />
+        <div class="row">
+
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="crystals">
+                    <img id="gem-01" class="button gem-image" src="assets/images/gem_mag.gif" alt="magenta gem" />
+                    <img id="gem-02" class="button gem-image" src="assets/images/gem_red.gif" alt="red gem" />
+                    <img id="gem-03" class="button gem-image" src="assets/images/gem_yellow.gif" alt="yellow gem" />
+                    <img id="gem-04" class="button gem-image" src="assets/images/gem_purple.gif" alt="purple gem" />
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+
         </div>
 
     </div>

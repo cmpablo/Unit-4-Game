@@ -1,4 +1,67 @@
-body {
-    background-image: url("../images/bg_img.png");
+.container {
+  min-height: 750px;
 }
 
+body {
+  background-image: url("../images/bg_img.png");
+  font-family: "Montserrat", sans-serif;
+}
+
+.page-header {
+  border-bottom: 0px;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  margin: 0px;
+  padding: 0px 0px 30px 0px;
+}
+
+#number-to-guess {
+  font-size: 35px;
+  letter-spacing: 2px;
+  color: rgb(170, 1, 85);
+}
+
+.panel-title {
+  font-size: 18px;
+  text-align: center;
+  color: #fff;
+}
+
+
+
+#num-wins,
+#num-losses,
+#user-score {
+  font-size: 30px;
+  text-align: center;
+  height: 75px;
+}
+
+.crystals {
+  margin: auto;
+  width: 50%;
+}
+
+.gem-image {
+  float: left;
+  padding: 10px;
+}
+
+p {
+  margin: 0px;
+  line-height: 1.6;
+}
+
+#title-instruct,
+#title-user-score,
+#title-win,
+#title-loss {
+  background-color: rgb(59, 59, 59);
+}

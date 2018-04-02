@@ -1,11 +1,12 @@
 $(document).ready(function() {
+  // Variables
   var winScore = 0;
   var loseScore = 0;
   var userTotal = 0;
   var randomTarget = Math.floor(Math.random() * 101) + 19;
   var crystals = $(".crystals");
 
-  // assign random number to each gem with a value 1-12
+  // Assign random number to each gem with a value 1-12
   var valGem01 = Math.floor(Math.random() * 12) + 1;
   var valGem02 = Math.floor(Math.random() * 12) + 1;
   var valGem03 = Math.floor(Math.random() * 12) + 1;
@@ -18,7 +19,7 @@ $(document).ready(function() {
   // Functions
 
   // Randomize the number to guess 19-120
-  function getRandom() {
+  function getRandomNum() {
     randomTarget = Math.floor(Math.random() * 101) + 19;
     $("#number-to-guess").text(randomTarget);
   }
@@ -32,22 +33,20 @@ $(document).ready(function() {
   }
 
   function winner() {
-    //alert("You win!");
     winScore++;
     $("#num-wins").text(winScore);
     reset();
   }
 
   function loser() {
-    //alert("You lose. Try again.");
     loseScore++;
     $("#num-losses").text(loseScore);
     reset();
   }
 
-  // resets game after win/loss
+  // Resets game after win/loss
   function reset() {
-    getRandom();
+    getRandomNum();
     resetGemNums();
     userTotal = 0;
     $("#user-score").text(userTotal);
@@ -94,5 +93,5 @@ $(document).ready(function() {
     }
   });
 
-  getRandom();
+  getRandomNum();
 });
